@@ -1,5 +1,7 @@
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
+
 
 const validationSchema = Yup.object({
   username: Yup.string().required("Username is required."),
@@ -19,15 +21,14 @@ const SignupForm = () => {
     },
     validationSchema,
     onSubmit: async (values) => {
-      try{
-        
-        console.log("values in onSubmit", values)
-
-      }catch(err){
-        console.error(err);
+      try {
+        // Adjust URL and request body according to your API
+        const response = await axios.post('/api/v1/auth/signup', values);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Signup error", error);
       }
     }
-
   });
   return (
     <form onSubmit={formik.handleSubmit} className= "auth-form">
