@@ -35,3 +35,18 @@
     background-color: var(--light-green);
 }
 
+.toggle-auth{
+    margin-top: 1rem;
+    width: 100%;
+    text-align: end;
+    background: none;
+    border: none;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: font-size 1s ea;
+}
+
+.toggle-auth:hover{
+    font-size: 1rem;
+}
