@@ -1,6 +1,6 @@
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
-
+import axios from 'axios';
 
 const validationSchema = Yup.object({
   email: Yup.string().email("Invalid email format").required("Required"),
@@ -16,12 +16,12 @@ const LoginForm = () => {
     },
     validationSchema,
     onSubmit: async (values) => {
-      try{
-        
-        console.log("values in onSubmit", values)
+      try {
+        const response = await axios.post('/api/v1/auth/login', values);
+        console.log("logged in: ",response.data);
 
       }catch(err){
-        console.log(err);
+        console.error("login error",err);
       }
     }
 
