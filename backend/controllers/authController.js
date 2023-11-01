@@ -6,7 +6,7 @@ export const signup = async(req, res)=>{
             {$or:[{username: req.body.username}, {email: req.body.email}]}
         )
         if(existingUser){
-            return res.status(409).json({message: "Username already exist"});
+            return res.status(409).json({message: "User already exist"});
         }
         if(req.body.password !== req.body.confirmPassword){
             return res.status(400).json({message: "Passwords do not match"})
