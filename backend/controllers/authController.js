@@ -20,14 +20,14 @@ export const signup = async(req, res)=>{
         return res.status(201).json({message: message, status: "sucesss"})
 
     }catch(err){
-        console.log(err);
+        // console.log(err);
         return res.status(500).json({message: err.message})
     }
 }
 
 export const login = async(req, res) =>{
     try{
-        console.log(req.body)
+        // console.log(req.body)
         const email = req.body.email;
         const password = req.body.password;
 
@@ -43,12 +43,12 @@ export const login = async(req, res) =>{
             return res.status(408).json({message: "Invalid Credentials case3"});
         }
         req.user = user;
-        console.log("req user = ", req.user);
-        console.log("user = ", user);
+        // console.log("req user = ", req.user);
+        // console.log("user = ", user);
         return res.status(200).json({message: `Dear ${user.username} you are logged in`, status: "Success"})
 
     }catch(err){
-        console.log(err);
+        // console.log(err);
         return res.status(500).json({message: err.message})
         
     };
