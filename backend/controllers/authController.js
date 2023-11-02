@@ -1,22 +1,31 @@
 import {User} from "../models/userModel.js";
+import validator from "validator";
 
 export const signup = async(req, res)=>{
     try{
+        const username = req.body.username;
+        const email = req.body.email;
+        const password = req.body.password;
+        const confirmPassword = req.body.confirmPassword
+
+        if(!(validator.isEmail(email))){
+            return res.status(404).json({message: "Invalid credentials case1"})
+        }
         const existingUser = await User.findOne (
-            {$or:[{username: req.body.username}, {email: req.body.email}]}
+            {$or:[{username: username}, {email: email}]}
         )
         if(existingUser){
             return res.status(409).json({message: "User already exist"});
         }
-        if(req.body.password !== req.body.confirmPassword){
+        if(password !== confirmPassword){
             return res.status(400).json({message: "Passwords do not match"})
         }
         await User.create({
-            username: req.body.username,
-            email: req.body.email,
-            password: req.body.password
+            username: username,
+            email: email,
+            password: password
         })
-        let message = `Dear ${req.body.username} your account was created successfully`
+        let message = `Dear ${username} your account was created successfully`
         return res.status(201).json({message: message, status: "sucesss"})
 
     }catch(err){
@@ -28,9 +37,13 @@ export const signup = async(req, res)=>{
 export const login = async(req, res) =>{
     try{
         // console.log(req.body)
-        const email = req.body.email;
-        const password = req.body.password;
+        const email = email;
+        const password = password;
 
+        if(!(validator.isEmail(email))){
+            return res.status(404).json({message: "Invalid credentials case1"})
+        }
+        
         const user = await User.findOne({email: email});
 
 
