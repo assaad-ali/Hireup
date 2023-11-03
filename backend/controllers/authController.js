@@ -1,5 +1,14 @@
 import {User} from "../models/userModel.js";
 import validator from "validator";
+import  jwt from 'jsonwebtoken';
+import { promisify } from "util";
+
+
+const signToken = (id) => {
+    return jwt.sign({id}, process.env.JWT_SECRETE, {
+        expiresIn: process.env.JWT_EXPIRES_IN,
+    });
+}
 
 export const signup = async(req, res)=>{
     try{
@@ -43,7 +52,7 @@ export const login = async(req, res) =>{
         if(!(validator.isEmail(email))){
             return res.status(404).json({message: "Invalid credentials case1"})
         }
-        
+
         const user = await User.findOne({email: email});
 
 
