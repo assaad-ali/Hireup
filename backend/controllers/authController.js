@@ -10,6 +10,18 @@ const signToken = (id) => {
     });
 }
 
+const createSendToken = (user, statusCode, message, res) => {
+    const token = signToken(user.id);
+    res.status(statusCode).json({
+        status: "Sucess",
+        token,
+        message: message,
+        data:{
+            user,
+        },
+    });
+}
+
 export const signup = async(req, res)=>{
     try{
         const username = req.body.username;
@@ -29,13 +41,15 @@ export const signup = async(req, res)=>{
         if(password !== confirmPassword){
             return res.status(400).json({message: "Passwords do not match"})
         }
-        await User.create({
+        const newUser = await User.create({
             username: username,
             email: email,
             password: password
         })
+
         let message = `Dear ${username} your account was created successfully`
-        return res.status(201).json({message: message, status: "sucesss"})
+
+        createSendToken(newUser, 201, message, res)
 
     }catch(err){
         // console.log(err);
@@ -46,8 +60,8 @@ export const signup = async(req, res)=>{
 export const login = async(req, res) =>{
     try{
         // console.log(req.body)
-        const email = email;
-        const password = password;
+        const email = req.body.email;
+        const password = req.body.password;
 
         if(!(validator.isEmail(email))){
             return res.status(404).json({message: "Invalid credentials case1"})
@@ -55,7 +69,7 @@ export const login = async(req, res) =>{
 
         const user = await User.findOne({email: email});
 
-
+        
         if(!user){
             console.log("user :", user);
             return res.status(404).json({message: "Invalid credentials case2"});
@@ -67,8 +81,8 @@ export const login = async(req, res) =>{
         req.user = user;
         // console.log("req user = ", req.user);
         // console.log("user = ", user);
-        return res.status(200).json({message: `Dear ${user.username} you are logged in`, status: "Success"})
-
+        let message = `Dear ${user.username} you are logged in`;
+        createSendToken(user, 200, message, res)
     }catch(err){
         // console.log(err);
         return res.status(500).json({message: err.message})
