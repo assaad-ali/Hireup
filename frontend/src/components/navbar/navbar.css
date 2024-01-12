@@ -1,17 +1,25 @@
 nav{
-    background-color: transparent;
     width: 100%;
-    font-size: 1.2rem;
+    background-color: transparent;
+    font-size: 1.1rem;
     position: sticky;
     top: 0;
+    padding: var(--container-padding);
     z-index: 999;
+    background: #f2f5f1;
+    border-bottom: 1px solid white;
+}
+
+.logo-container{
+    padding-left: 1em;
+    font-size: 1.5em;
 }
 .nav-wrapper{
-    width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
-.right-navbar{
+.options-container{
     display: flex;
     justify-content: space-evenly;
     width: 40%;
@@ -25,3 +33,4 @@ li{
     list-style: none;
     padding: 0 1rem;
 }
+
