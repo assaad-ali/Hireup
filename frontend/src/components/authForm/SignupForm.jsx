@@ -1,6 +1,7 @@
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 const validationSchema = Yup.object({
@@ -11,6 +12,7 @@ const validationSchema = Yup.object({
 });
 
 const SignupForm = () => {
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -22,9 +24,10 @@ const SignupForm = () => {
     validationSchema,
     onSubmit: async (values) => {
       try {
-        // Adjust URL and request body according to your API
-        const response = await axios.post('/api/v1/auth/signup', values);
-        console.log(response.data);
+
+        const response = await axios.post('http://localhost:5000/api/v1/auth/signup', values);
+        // console.log('response:\n',response);
+        navigate("/home");
       } catch (error) {
         console.error("Signup error", error);
       }
