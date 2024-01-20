@@ -1,13 +1,15 @@
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const validationSchema = Yup.object({
   email: Yup.string().email("Invalid email format").required("Required"),
-  password: Yup.string().required("Required"),
+  password: Yup.string().required("Required").min(8, "Password should be at least 8 characters long.").max(32, "Password should not exceed 32 characters."),
 });
 
 const LoginForm = () => {
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -17,8 +19,9 @@ const LoginForm = () => {
     validationSchema,
     onSubmit: async (values) => {
       try {
-        const response = await axios.post('/api/v1/auth/login', values);
-        console.log("logged in: ",response.data);
+        const response = await axios.post('http://localhost:5000/api/v1/auth/login', values);
+        console.log("logged in: ",response);
+        navigate('/home');
 
       }catch(err){
         console.error("login error",err);
