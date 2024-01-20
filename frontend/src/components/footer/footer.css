@@ -1,7 +1,8 @@
 
 .landingPage-footer {
+    position: relative;
     width: 100%;
-    background-color: #f4f4f4; 
+    background: linear-gradient( #e6d7bc 0%,  #e6d7ba 70%, #e6d7ba 100%); 
     color: #333; 
     padding: 1rem 0;
     font-size: 0.8rem;
