@@ -2,10 +2,16 @@ import {User} from "../models/userModel.js";
 import validator from "validator";
 import  jwt from 'jsonwebtoken';
 import { promisify } from "util";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 
 const signToken = (id) => {
-    return jwt.sign({id}, process.env.JWT_SECRETE, {
+    if (!process.env.JWT_SECRET) {
+        throw new Error('JWT secret key is not defined');
+    }
+    return jwt.sign({id}, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIRES_IN,
     });
 }
@@ -48,11 +54,11 @@ export const signup = async(req, res)=>{
         })
 
         let message = `Dear ${username} your account was created successfully`
-
+        // console.log("new user: ", newUser, "\nmessage: ", message, "\nres: ", res)
         createSendToken(newUser, 201, message, res)
-
+        
     }catch(err){
-        // console.log(err);
+        // console.log("error in signup:\n",err);
         return res.status(500).json({message: err.message})
     }
 }
@@ -71,7 +77,7 @@ export const login = async(req, res) =>{
 
         
         if(!user){
-            console.log("user :", user);
+            console.log("no user :", user);
             return res.status(404).json({message: "Invalid credentials case2"});
         }
         
