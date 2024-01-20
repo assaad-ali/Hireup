@@ -1,12 +1,13 @@
 import React from "react";
 import "./navbar.css";
+
 const Navbar = () => {
   return (
     <nav>
       <div className="nav-wrapper">
         <div className="logo-container">
           <a href="/" className="brand-logo">
-            HireUp
+            <img src="/logosvg.svg" alt="" />
           </a>
         </div>
 
