@@ -3,11 +3,11 @@
     flex-direction: column;
     align-items: center;
     margin: 0.8rem;
-    padding: 1rem;
+    padding: 2rem;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
 }
 .auth-form {
-    width: 15rem;
+    width:15rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -16,7 +16,7 @@
 }
 
 .auth-form input {
-    padding: 0.6rem;
+    padding: 0.8rem;
     width: 90%;
     border-radius: 0.5rem;
     border: 0.1rem solid #ccc;
@@ -26,7 +26,7 @@
 .auth-form button {
     padding: 0.6rem 0.9rem;
     width: 70%;
-    background-color: var(--dark-green);
+    background-color: var(--button-bg-color);
     color: white;
     font-size: var(--text-font-size);
     border: none;
@@ -38,7 +38,7 @@
 }
 
 .auth-form button:hover {
-    background-color: var(--light-green);
+    background-color: var(--button-hover-bg-color);
 }
 
 .toggle-auth{
@@ -48,13 +48,15 @@
     background: none;
     border: none;
     font-size: 0.8rem;
-    color: var(--primary-color);
+    color: var(--button-bg-color);
     cursor: pointer;
     transition: font-size 1s ea;
 }
 
 .toggle-auth:hover{
-    font-size: 1rem;
+    color: teal;
+    font-size: 1.2rem;
+    font-weight: 800;
 }
 .error {
     color: red;
