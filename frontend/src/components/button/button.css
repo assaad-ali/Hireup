@@ -75,3 +75,8 @@ flex-center-button,
     background-color: #fff;
     color: #222;
 }
+
+.button-group .flex-center-button:not(:last-child),
+.button-group .solid-border-button:not(:last-child) {
+    margin-right: 12px;
+}
