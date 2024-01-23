@@ -43,3 +43,15 @@ flex-center-button,
     background: #fff;
     color: #222;
 }
+
+
+.gradient-background-button {
+    background: linear-gradient(45deg, rgba(20, 70, 234, 1) 0%, rgba(3, 220, 236, 1) 88%, rgba(3, 220, 236, 1) 100%);
+    color: #fff;
+}
+
+.transparent-button {
+    background-color: transparent;
+    border-color: var(--dark-teal);
+    color: #fff;
+}
