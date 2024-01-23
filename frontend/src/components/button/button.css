@@ -16,3 +16,14 @@ flex-center-button,
     text-transform: capitalize;
     cursor: pointer;
 }
+
+.solid-border-button {
+    border: 1px solid;
+    padding: 0.69em 3.2em;
+}
+
+.flex-center-button:hover,
+.solid-border-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0px 5px 10px 0px #fec64450;
+}
