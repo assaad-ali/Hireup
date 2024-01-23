@@ -80,3 +80,11 @@ flex-center-button,
 .button-group .solid-border-button:not(:last-child) {
     margin-right: 12px;
 }
+
+@media screen and (max-width: 991px) {
+    .flex-center-button,
+    .solid-border-button {
+        font-size: 0.8rem;
+        padding: 0.72em 1.8em;
+    }
+}
