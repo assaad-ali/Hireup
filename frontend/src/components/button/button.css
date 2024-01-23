@@ -55,3 +55,8 @@ flex-center-button,
     border-color: var(--dark-teal);
     color: #fff;
 }
+
+.transparent-border-button:hover {
+    background-color: var(--button-bg-color);
+    color: var(--light-gray);
+}
