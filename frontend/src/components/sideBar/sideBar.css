@@ -54,3 +54,12 @@
     transition: all 0.3s ease;
     transform: scale(1.1);
 }
+
+@media (max-width: 768px) {
+    .side-bar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        background: linear-gradient(to right, #6e8efb, #a777e3);
+    }
+}
