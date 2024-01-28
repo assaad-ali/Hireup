@@ -1,5 +1,6 @@
 import React from 'react';
 import './postItem.css';
+import { FaBolt, FaComment, FaHeart, FaShare } from 'react-icons/fa';
 
 const PostItem = ({ post }) => {
   return (
@@ -16,8 +17,10 @@ const PostItem = ({ post }) => {
         <p className="post-description">{post.description}</p>
       </div>
       <div className="post-actions">
-        <button className="like-button">👍</button>
-        <button className="comment-button">💬</button>
+        <button className="like-button"><FaHeart /> </button>
+        <button className="comment-button"><FaComment /></button>
+        <button className="share-button"><FaShare /></button>
+        <button className="fast-apply-button"><FaBolt /> </button>
       </div>
     </div>
   );
