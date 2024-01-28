@@ -105,3 +105,9 @@
   background-color: #e1e4e8;
   transform: scale(1.1);
 }
+
+@media (max-width: 768px) {
+  .post-card {
+    width: 80vw;
+  }
+}
