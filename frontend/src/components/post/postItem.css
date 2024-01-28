@@ -47,6 +47,17 @@
   position: relative;
 }
 
+.author-name::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0073b1;
+  transition: width 0.3s ease;
+}
+
 .post-date {
   font-size: 0.875rem;
   color: #6c757d;
