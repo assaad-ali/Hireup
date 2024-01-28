@@ -44,6 +44,7 @@
 
 .author-name {
   font-weight: bold;
+  position: relative;
 }
 
 .post-date {
