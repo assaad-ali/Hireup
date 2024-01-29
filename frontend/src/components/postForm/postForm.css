@@ -1,0 +1,8 @@
+.post-form-section {
+    background-color: var(--card-bg-color);
+    padding: var(--container-padding);
+    border-radius: var(--border-radius);
+    margin: 2rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+  }
