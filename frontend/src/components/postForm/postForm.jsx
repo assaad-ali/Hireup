@@ -3,6 +3,7 @@ import { useState } from "react";
 const PostForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [qualifications, setQualifications] = useState("");
 
   return (
     <section className="post-form-section">
@@ -31,7 +32,13 @@ const PostForm = () => {
         </div>
         <div className="post-form-group">
           <label>Qualifications:</label>
-          <textarea className="post-form-textarea" />
+          <textarea
+            className="post-form-textarea"
+            value={qualifications}
+            onChange={({ value }) => {
+              setQualifications(value);
+            }}
+          />
         </div>
         <button type="submit">Post Job</button>
       </form>
