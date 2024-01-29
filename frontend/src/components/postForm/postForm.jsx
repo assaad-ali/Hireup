@@ -1,7 +1,9 @@
 import "./postForm.css";
 import { useState } from "react";
 const PostForm = () => {
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
   return (
     <section className="post-form-section">
       <form>
@@ -12,12 +14,20 @@ const PostForm = () => {
             className="form-input"
             type="text"
             value={title}
-            onChange={({value})=> {setTitle(value) }}
+            onChange={({ value }) => {
+              setTitle(value);
+            }}
           />
         </div>
         <div className="post-form-group">
           <label>Description:</label>
-          <textarea className="post-form-textarea" />
+          <textarea
+            className="post-form-textarea"
+            value={description}
+            onChange={({ value }) => {
+              setDescription(value);
+            }}
+          />
         </div>
         <div className="post-form-group">
           <label>Qualifications:</label>
