@@ -24,3 +24,23 @@
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
+
+.form-input,
+.post-form-textarea {
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  border: var(--border);
+  background-color: var(--input-bg-color);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.form-input:focus,
+.post-form-textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.post-form-textarea {
+  height: 6rem;
+  resize: vertical;
+}
