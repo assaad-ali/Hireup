@@ -1,8 +1,16 @@
 .post-form-section {
+    color: #fff;
     background-color: var(--card-bg-color);
     padding: var(--container-padding);
     border-radius: var(--border-radius);
     margin: 2rem;
     box-shadow: var(--box-shadow);
     transition: var(--transition);
+  }
+
+
+.post-form-section h2 {
+    font-size: var(--heading-font-size);
+    margin-bottom: 1rem;
+    text-align: center;
   }
