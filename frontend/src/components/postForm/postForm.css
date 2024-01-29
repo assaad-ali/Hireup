@@ -62,3 +62,9 @@
 .submit-button:hover {
   background-color: var(--button-hover-bg-color);
 }
+
+@media (max-width: 768px) {
+  .post-form-section {
+    margin: 1rem;
+  }
+}
